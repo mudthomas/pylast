@@ -2443,7 +2443,7 @@ class User(_Chartable):
 
         return _extract_top_albums(doc, self.network)
 
-    def get_top_artists(self, period=PERIOD_OVERALL, limit=None):
+    def get_top_artists(self, period=PERIOD_OVERALL, limit=None, page=1):
         """Returns the top artists played by a user.
         * period: The period of time. Possible values:
           o PERIOD_OVERALL
@@ -2456,6 +2456,7 @@ class User(_Chartable):
 
         params = self._get_params()
         params["period"] = period
+        params["page"] = page
         if limit:
             params["limit"] = limit
 
